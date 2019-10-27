@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Feedback 2018/2019"
+	},
+	axisX:{
+		valueFormatString: "MMM YY",
+		crosshair: {
+			enabled: true,
+			snapToDataPoint: true
+		}
+	},
+	axisY: {
+		title: "Number of Feedbacks",
+		crosshair: {
+			enabled: true
+		}
+	},
+	toolTip:{
+		shared:true
+	},  
+	legend:{
+		cursor:"pointer",
+		verticalAlign: "bottom",
+		horizontalAlign: "left",
+		dockInsidePlotArea: true,
+		itemclick: toogleDataSeries
+	},
+	data: [{
+		type: "line",
+		showInLegend: true,
+		name: "Positive Feedback",
+		markerType: "square",
+		xValueFormatString: "DD MMM, YYYY",
+		color: "#008000",
+		dataPoints: [
+			{ x: new Date(2018, 0, 1), y: 650 },
+			{ x: new Date(2018, 1, 1), y: 700 },
+			{ x: new Date(2018, 2, 1), y: 710 },
+			{ x: new Date(2018, 3, 1), y: 658 },
+			{ x: new Date(2018, 4, 1), y: 734 },
+			{ x: new Date(2018, 5, 1), y: 963 },
+			{ x: new Date(2018, 6, 1), y: 847 },
+			{ x: new Date(2018, 7, 1), y: 853 },
+			{ x: new Date(2018, 8, 1), y: 869 },
+			{ x: new Date(2018, 9, 1), y: 943 },
+			{ x: new Date(2018, 10, 1), y: 970 },
+			{ x: new Date(2018, 11, 1), y: 869 },
+            { x: new Date(2019, 0, 1), y: 510 },
+			{ x: new Date(2019, 1, 1), y: 560 },
+			{ x: new Date(2019, 2, 1), y: 540 },
+			{ x: new Date(2019, 3, 1), y: 558 },
+			{ x: new Date(2019, 4, 1), y: 544 },
+			{ x: new Date(2019, 5, 1), y: 693 },
+			{ x: new Date(2019, 6, 1), y: 657 },
+			{ x: new Date(2019, 7, 1), y: 663 },
+			{ x: new Date(2019, 8, 1), y: 639 },
+			{ x: new Date(2019, 9, 1), y: 673 },
+			{ x: new Date(2019, 10, 1), y: 660 },
+			{ x: new Date(2019, 11, 1), y: 562 }
+		]
+	},
+	{
+		type: "line",
+		showInLegend: true,
+		name: "Negative Feedback",
+		lineDashType: "dash",
+        color: "#FF0000",
+		dataPoints: [
+			{ x: new Date(2018, 0, 1), y: 510 },
+			{ x: new Date(2018, 1, 1), y: 560 },
+			{ x: new Date(2018, 2, 1), y: 540 },
+			{ x: new Date(2018, 3, 1), y: 558 },
+			{ x: new Date(2018, 4, 1), y: 544 },
+			{ x: new Date(2018, 5, 1), y: 693 },
+			{ x: new Date(2018, 6, 1), y: 657 },
+			{ x: new Date(2018, 7, 1), y: 663 },
+			{ x: new Date(2018, 8, 1), y: 639 },
+			{ x: new Date(2018, 9, 1), y: 673 },
+			{ x: new Date(2018, 10, 1), y: 660 },
+			{ x: new Date(2018, 11, 1), y: 562 },
+            { x: new Date(2019, 0, 1), y: 510 },
+			{ x: new Date(2019, 1, 1), y: 580 },
+			{ x: new Date(2019, 2, 1), y: 590 },
+			{ x: new Date(2019, 3, 1), y: 548 },
+			{ x: new Date(2019, 4, 1), y: 554 },
+			{ x: new Date(2019, 5, 1), y: 663 },
+			{ x: new Date(2019, 6, 1), y: 627 },
+			{ x: new Date(2019, 7, 1), y: 613 },
+			{ x: new Date(2019, 8, 1), y: 679 },
+			{ x: new Date(2019, 9, 1), y: 613 },
+			{ x: new Date(2019, 10, 1), y: 670 },
+			{ x: new Date(2019, 11, 1), y: 512 }
+		]
+	}]
+});
+chart.render();
+
+function toogleDataSeries(e){
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	} else{
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+}
+
+}
+
+
+
+
+var imgs = [
+        //arrays index start at 0.. 
+        [], 
+        ["https://i.imgur.com/UK5FthK.png"],
+        ["https://i.imgur.com/BEw4sAm.png"],
+        ["https://i.imgur.com/lFXKPmn.png"],
+        ["https://i.imgur.com/qBXWV6W.png"],
+        ["https://i.imgur.com/qoXjNUf.png"],
+        ["https://i.imgur.com/F6n8b6q.png"],
+        ["https://i.imgur.com/xabAvK9.png"],
+          ];
+        
+        function showImg (imgIndex) {
+          document.getElementById('img1').src = imgs[imgIndex][0] ;
+        }
+
+
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<style type="text/css"> 
+	img{width:568px;height:460px;border:0;} 
+	
+	</style>
+	<div align="center">
+	<img id="img1" src="" >        
+	<br>
+	
+	<input type="button" value="Jan-April2018" onclick="showImg(1)" >
+	<input type="button" value="April-July2018" onclick="showImg(2)" >
+	<input type="button" value="July-Oct2018" onclick="showImg(3)" >
+	<input type="button" value="Oct-Jan2019" onclick="showImg(4)" >
+	<input type="button" value="Jan-April2019" onclick="showImg(5)" >
+	<input type="button" value="April-July2019" onclick="showImg(6)" >
+	<input type="button" value="July-Oct2019" onclick="showImg(7)" >
+	</div>
+</body>
+</html>
